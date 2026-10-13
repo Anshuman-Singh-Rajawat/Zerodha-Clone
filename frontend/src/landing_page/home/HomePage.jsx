@@ -6,7 +6,7 @@ import Stats from "./Stats";
 import Pricing from "./Pricing";
 import Education from "./Education";
 
-function Home() {
+function HomePage() {
   return (
     <>
       <Hero />
@@ -19,4 +19,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

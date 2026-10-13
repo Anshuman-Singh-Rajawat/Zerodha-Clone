@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg border-bottom">
       <div className="container p-2">
-        <Link className="navbar-brand" to="/landingPage/Home">
+        <Link className="navbar-brand" to="/">
           <img src="/media/images/logo.svg" style={{ width: "25%" }} />
         </Link>
         <button
