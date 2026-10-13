@@ -31,8 +31,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(cookieParser());
 app.use(express.json());
+app.use(cookieParser());
 app.use("/", authRoute);
 
 //Insert Sample data into database

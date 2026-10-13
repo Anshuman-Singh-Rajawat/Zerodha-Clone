@@ -8,21 +8,28 @@ const Home = () => {
   const [username, setUsername] = useState("");
   useEffect(() => {
     const verifyCookie = async () => {
-      const { data } = await axios.post(
-        "https://zerodha-backend-r0g9.onrender.com/",
-        {},
-        { withCredentials: true }
-      );
-      console.log(data);
-      const { status, user } = data;
-      setUsername(user);
-      return status
-        ? toast(`Hello ${username}`, {
-            position: "top-right",
-          })
-        : console.log("hello");
-      // : (window.location.href =
-      //     "https://zerodha-clone-qdib.onrender.com/signup");
+      try {
+        const { data } = await axios.post(
+          "https://zerodha-backend-r0g9.onrender.com/",
+          {},
+          { withCredentials: true }
+        );
+        console.log("Backend response:", data);
+        const { status, user } = data;
+        setUsername(user);
+        return status
+          ? toast(`Hello ${user}`, {
+              position: "top-right",
+            })
+          : console.log("Authentication failed: token missing or invalid");
+        // : (window.location.href =
+        //     "https://zerodha-clone-qdib.onrender.com/signup");
+      } catch (err) {
+        console.error(
+          "Verification request failed:",
+          error.response?.data || error.message
+        );
+      }
     };
     verifyCookie();
   }, []);
