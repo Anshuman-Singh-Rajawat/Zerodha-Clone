@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-
+import { useCookies } from "react-cookie";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
 const Home = () => {
   const [username, setUsername] = useState("");
+  const [cookies, removeCookie] = useCookies([]);
   useEffect(() => {
     const verifyCookie = async () => {
       const { data } = await axios.post(
