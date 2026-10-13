@@ -6,13 +6,13 @@ import { ToastContainer, toast } from "react-toastify";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
-const DashboardHome = () => {
+const Home = () => {
   const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
-        window.location.href = "http://localhost:3000/signup";
+        window.location.href = "https://zerodha-clone-qdib.onrender.com/signup";
         return;
       }
       const { data } = await axios.post(
@@ -27,7 +27,8 @@ const DashboardHome = () => {
             position: "top-right",
           })
         : (removeCookie("token"),
-          (window.location.href = "http://localhost:3000/signup"));
+          (window.location.href =
+            "https://zerodha-clone-qdib.onrender.com/signup"));
     };
     verifyCookie();
   }, [cookies, removeCookie]);
