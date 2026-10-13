@@ -42,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default DashboardHome;
+export default Home;
