@@ -22,7 +22,10 @@ mongoose
 
 app.use(
   cors({
-    origin: ["http://localhost:3001", "http://localhost:3000"],
+    origin: [
+      "https://zerodha-clone-qdib.onrender.com",
+      "https://zerodha-dashboard-34ar.onrender.com",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
