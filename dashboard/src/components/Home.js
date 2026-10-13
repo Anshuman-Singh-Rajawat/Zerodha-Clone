@@ -27,7 +27,7 @@ const Home = () => {
       } catch (err) {
         console.error(
           "Verification request failed:",
-          error.response?.data || error.message
+          err.response?.data || err.message
         );
       }
     };
