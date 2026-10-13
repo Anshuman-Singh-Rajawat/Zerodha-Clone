@@ -13,6 +13,7 @@ const Home = () => {
         {},
         { withCredentials: true }
       );
+      console.log(data);
       const { status, user } = data;
       setUsername(user);
       return status
