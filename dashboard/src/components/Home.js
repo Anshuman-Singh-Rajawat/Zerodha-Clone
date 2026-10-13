@@ -20,8 +20,9 @@ const Home = () => {
         ? toast(`Hello ${username}`, {
             position: "top-right",
           })
-        : (window.location.href =
-            "https://zerodha-clone-qdib.onrender.com/signup");
+        : console.log("hello");
+      // : (window.location.href =
+      //     "https://zerodha-clone-qdib.onrender.com/signup");
     };
     verifyCookie();
   }, []);
