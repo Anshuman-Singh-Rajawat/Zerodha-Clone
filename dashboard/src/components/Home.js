@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
 const Home = () => {
+  const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState("");
   useEffect(() => {
     const verifyCookie = async () => {
@@ -21,9 +23,9 @@ const Home = () => {
           ? toast(`Hello ${user}`, {
               position: "top-right",
             })
-          : console.log("Authentication failed: token missing or invalid");
-        // : (window.location.href =
-        //     "https://zerodha-clone-qdib.onrender.com/signup");
+          : (removeCookie("token"),
+            (window.location.href =
+              "https://zerodha-clone-qdib.onrender.com/signup"));
       } catch (err) {
         console.error(
           "Verification request failed:",
@@ -32,12 +34,12 @@ const Home = () => {
       }
     };
     verifyCookie();
-  }, []);
+  }, [cookies, removeCookie]);
 
   return (
     <>
       <TopBar />
-      <Dashboard />
+      <Dashboard username={username} />
       <ToastContainer />
     </>
   );
