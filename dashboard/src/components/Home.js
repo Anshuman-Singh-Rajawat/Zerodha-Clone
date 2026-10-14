@@ -34,7 +34,7 @@ const Home = () => {
       }
     };
     verifyCookie();
-  }, [cookies, removeCookie]);
+  }, [removeCookie]);
 
   return (
     <>
